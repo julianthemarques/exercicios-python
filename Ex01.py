@@ -1,28 +1,30 @@
-idade = {'cachorro 1 Ju': 3, 'cachorro 2 Ju': 2,
-         'cachorro 3 Ju': 1, 'cachorro 4 Ju': 12, 'cachorro 5 Ju': 3}
 
-idade2 = {'cachorro 1 Ca': 3, 'cachorro 2 Ca': 2,
-          'cachorro 3 Ca': 1, 'cachorro 4 Ca': 12, 'cachorro 5 Ca': 3}
+julia1 = [3, 2, 1, 12, 3]
+camila1 = [4, 12, 15, 8, 3]
+julia2 = [9, 16, 6, 8, 3]
+camila2 = [10, 5, 6, 1, 4]
 
 
-def checarCachorros():
-    # tirando os gatos da lista
-    del idade['cachorro 1 Ju']
-    del idade['cachorro 4 Ju']
-    del idade['cachorro 5 Ju']
+def checarCachorros(listaA, ListaB):
+    # tirando os gatos da lista de Julia com splice
+    limite = len(listaA)
+    listaJuliaSemGatos = listaA[1:limite-2]
+    print(listaJuliaSemGatos)
     # concatenando a lista de ambas garotas
-    idade.update(idade2)
+    listaTotal = listaJuliaSemGatos + ListaB
+    print(listaTotal)
     # adulto ou filhote?
-    if idade.keys() >= 3:
-        cachorroIdade = 'adulto'
-    else:
-        cachorroIdade = 'filhote'
-    # enumerando index dos cachorros
-    for i in enumerate(idade.items()):
+    for e, i in enumerate(listaTotal):
+        if i >= 3:
+            cachorroIdade = 'adulto'
+        else:
+            cachorroIdade = 'filhote'
+    # um apanhado geral de nossas informações
         print(
-            f"O cachorro número {i} é um {cachorroIdade} e tem {idade[1]} ano(s) de idade")
-    # um print de como está nosso dicionário
-    print(idade)
+            f"O cachorro número {e+1} é um {cachorroIdade} e tem {i} ano(s) de idade")
+
+# rodando a função com dois conjuntos de dados diferentes
 
 
-checarCachorros()
+checarCachorros(julia1, camila1)
+checarCachorros(julia2, camila2)
