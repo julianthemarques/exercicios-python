@@ -9,13 +9,11 @@ def checarCachorros(listaA, listaB):
     # tirando os gatos da lista de Julia com splice
     limite = len(listaA)
     listaJuliaSemGatos = listaA[1:limite-2]
-    print(listaJuliaSemGatos)
     # concatenando a lista de ambas garotas
     listaTotal = listaJuliaSemGatos + listaB
-    print(listaTotal)
     # adulto ou filhote?
     for i, idade in enumerate(listaTotal):
-        if i >= 3:
+        if idade >= 3:
             cachorroIdade = 'adulto'
         else:
             cachorroIdade = 'filhote'
